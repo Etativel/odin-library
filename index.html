@@ -9,6 +9,7 @@
     <script src="script.js" defer></script>
 </head>
 <body>
+    
     <div class="container">
         <div class="header">
             <h1>My Library</h1>
@@ -18,41 +19,72 @@
             </button>
         </div>
         <div class="main">
+            <dialog class="formDialog">
+                <form action="">
+                    <h3>New Book</h3>
+                    <div class="form-container">
+                        <label for="book-title-form">Title</label>
+                        <input type="text" name="title" id="book-title-form" required>
+                        <label for="book-author-form">Author</label>
+                        <input type="text" name="title" id="book-author-form" required>
+                        <label>Genre</label>
+                        <select id="book-genre-form">
+                            <option value="default"></option>
+                            <option value="action">Action</option>
+                            <option value="adventure">Adventure</option>
+                            <option value="autobiography">Autobiography</option>
+                            <option value="biography">Biography</option>
+                            <option value="childrens-literature">Children's Literature</option>
+                            <option value="comedy">Comedy</option>
+                            <option value="crime">Crime</option>
+                            <option value="drama">Drama</option>
+                            <option value="fantasy">Fantasy</option>
+                            <option value="fiction">Fiction</option>
+                            <option value="historical-fiction">Historical Fiction</option>
+                            <option value="horror">Horror</option>
+                            <option value="memoir">Memoir</option>
+                            <option value="mystery">Mystery</option>
+                            <option value="non-fiction">Non-fiction</option>
+                            <option value="poetry">Poetry</option>
+                            <option value="romance">Romance</option>
+                            <option value="satire">Satire</option>
+                            <option value="science-fiction">Science Fiction</option>
+                            <option value="thriller">Thriller</option>
+                            <option value="young-adult-fiction">Young Adult Fiction</option>
+                        </select>
+                        <label for="book-read-form">
+                            Alerady Read?
+                            <input type="checkbox" name="read" id="book-read-form">
+                        </label>
+                        <label for="book-rating-form">Rating</label>
+                        <input type="number" name="rating" id="book-rating-form" min="1" max="5" value="">
+                    </div>
+                    <div class="form-btn">
+                        <button class="cancel-form">
+                            Cancel
+                        </button>
+                        <button type="submit" class="submit-form">
+                            Add Book
+                        </button>
+                    </div>
+                </form>
+            </dialog>
             <div class="book-card">
                 <h3 class="book-title">The Time Machine</h3>
                 <p class="book-author">H. G. Well</p>
             </div>
-            <div class="book-card">
-                This book card
-            </div>
-            <div class="book-card">
-                This book card
-            </div>
-            <div class="book-card">
-                This book card
-            </div>
-            <div class="book-card">
-                This book card
-            </div>
-            <div class="book-card">
-                This book card
-            </div>
-            <div class="book-card">
-                This book card
-            </div>
-            <div class="book-card">
-                This book card
-            </div>
-            <div class="book-card">
-                This book card
-            </div>
-            <div class="book-card">
-                This book card
-            </div>
         </div>
+
+
+
+
+
+
+
         <div class="footer">
             This is footer
         </div>
     </div>
+
 </body>
 </html>
