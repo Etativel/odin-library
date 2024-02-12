@@ -75,6 +75,8 @@
 }
 
 .book-card{
+    position: relative;
+
     padding: 18px;
     display: flex;
     flex-direction: column;
@@ -85,18 +87,41 @@
     border-radius: 6px;
 }
 
-.book-title {
+.book-title-card {
+    display: flex;
+    justify-content: space-between;
     font-size: 16px;
     color: #343a40;
 }
 
-.book-author {
+.book-author-card {
     padding-top: 5px;
     padding-left: 2px;
     font-size: 14px;
     color: #495057;
 }
 
+.book-genre-card {
+    padding-top: 5px;
+    padding-left: 2px;
+    font-size: 14px;
+    color: #495057;
+}
+
+.book-rating-card {
+    /* position: absolute; */
+    /* padding: 5px 10px; */
+    /* bottom: 0; */
+    /* right: 0; */
+    
+    display: flex;
+    padding-top: 30%;
+    padding-left: 2px;
+    font-size: 14px;
+    color: #495057; 
+
+    justify-content: space-between;
+}
 
 .footer {
     grid-column: 1/4;

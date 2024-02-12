@@ -25,8 +25,38 @@ function addBookToLibrary(){
     bookList.push(currentBook)
 
 }
+{/* <div class="book-card">
+    <h3 class="book-title-card">
+        The Time Machine
+        <input type="checkbox" class="book-marker">
+    </h3>
+    <p class="book-author-card">H. G. Well</p>
+    <p class="book-genre-card">Horror</p>
+    <div class="book-rating-card">
+        4 Star
+        <button class="delete-book-card">Delete</button>
+    </div>
+</div> */}
 
+function createBookCard(bookList){
+    let bookCard = document.createElement("div");
+    let bookTitle = document.createElement("h3");
+    let bookReadMarker = document.createElement("input");
+    let bookAuthor = document.createElement("p");
+    let bookGenre = document.createElement("p");
+    let bookRating = document.createElement("div");
+    let bookDeleteButton = document.createElement("button")
 
+    bookCard.classList.add("book-card")
+    bookTitle.classList.add("book-title-card")
+    bookReadMarker.classList.add("book-marker")
+    bookAuthor.classList.add("book-author-card")
+    bookGenre.classList.add("book-genre-card")
+    bookRating.classList.add("book-rating-card")
+    bookDeleteButton.classList.add("delete-book-card")
+
+    drawBoard.appendChild(gridBox);
+}
 
 addBookBtn.addEventListener("click", ()=>{
     formDialog.showModal();
