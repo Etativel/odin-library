@@ -2,8 +2,10 @@ const addBookBtn = document.querySelector(".addBook-btn")
 const formDialog = document.querySelector(".formDialog");
 const cancelForm = document.querySelector(".cancel-form")
 const submitForm = document.querySelector("form")
+const bookMainContainer = document.querySelector(".main")
+const deleteBookBtn = document.querySelectorAll(".delete-book-card")
 
-const bookList = []
+let bookList = []
 
 function Book(title, author, genre, alreadyRead, rating) {
     this.title = title
@@ -25,37 +27,56 @@ function addBookToLibrary(){
     bookList.push(currentBook)
 
 }
-{/* <div class="book-card">
-    <h3 class="book-title-card">
-        The Time Machine
-        <input type="checkbox" class="book-marker">
-    </h3>
-    <p class="book-author-card">H. G. Well</p>
-    <p class="book-genre-card">Horror</p>
-    <div class="book-rating-card">
-        4 Star
-        <button class="delete-book-card">Delete</button>
-    </div>
-</div> */}
 
-function createBookCard(bookList){
-    let bookCard = document.createElement("div");
-    let bookTitle = document.createElement("h3");
-    let bookReadMarker = document.createElement("input");
-    let bookAuthor = document.createElement("p");
-    let bookGenre = document.createElement("p");
-    let bookRating = document.createElement("div");
-    let bookDeleteButton = document.createElement("button")
 
-    bookCard.classList.add("book-card")
-    bookTitle.classList.add("book-title-card")
-    bookReadMarker.classList.add("book-marker")
-    bookAuthor.classList.add("book-author-card")
-    bookGenre.classList.add("book-genre-card")
-    bookRating.classList.add("book-rating-card")
-    bookDeleteButton.classList.add("delete-book-card")
+function showBookList(bookList){
+    bookMainContainer.innerHTML = "";
+    for (let i = 0; i < bookList.length; i++){
+        
+        const title = bookList[i].title
+        const author = bookList[i].author
+        const readMark = bookList[i].alreadyRead
+        const rating = bookList[i].rating
+        const genre = bookList[i].genre
 
-    drawBoard.appendChild(gridBox);
+        let bookCard = document.createElement("div");
+        let bookTitle = document.createElement("h3");
+        let bookReadMarker = document.createElement("input");
+        let bookAuthor = document.createElement("p");
+        let bookGenre = document.createElement("p");
+        let bookRating = document.createElement("div");
+        let bookDeleteButton = document.createElement("button")
+    
+        bookCard.classList.add("book-card")
+        bookTitle.classList.add("book-title-card")
+        bookReadMarker.classList.add("book-marker")
+        bookReadMarker.type = "checkbox"
+        bookAuthor.classList.add("book-author-card")
+        bookGenre.classList.add("book-genre-card")
+        bookRating.classList.add("book-rating-card")
+        bookDeleteButton.classList.add("delete-book-card")
+    
+        bookTitle.textContent = title;
+        bookAuthor.textContent = author;
+        bookGenre.textContent = genre;
+        bookRating.textContent = rating + " Star";
+        bookDeleteButton.textContent = "Delete";
+    
+        bookTitle.appendChild(bookReadMarker);
+        bookRating.appendChild(bookDeleteButton);
+    
+        bookCard.appendChild(bookTitle);
+        bookCard.appendChild(bookAuthor);
+        bookCard.appendChild(bookGenre);
+        bookCard.appendChild(bookRating);
+
+        bookMainContainer.appendChild(bookCard);
+    
+    }
+}
+
+function deleteBook(titleName, bookList){
+    return bookList.filter(book => book.title != titleName)
 }
 
 addBookBtn.addEventListener("click", ()=>{
@@ -70,10 +91,20 @@ cancelForm.addEventListener("click", (e)=>{
 
 submitForm.addEventListener("submit", (e) => {
     addBookToLibrary()
-
+    showBookList(bookList)
     e.preventDefault()
     submitForm.reset()
     formDialog.close()
-    console.log(bookList)
 
+});
+
+
+bookMainContainer.addEventListener("click", (e) => {
+    if (e.target.classList.contains("delete-book-card")) {
+        e.preventDefault();
+        var bookTitleToDelete = e.target.closest(".book-card").querySelector(".book-title-card").textContent.trim();
+        console.log(bookTitleToDelete);
+        bookList = deleteBook(bookTitleToDelete, bookList)
+        showBookList(bookList)
+    }
 });
