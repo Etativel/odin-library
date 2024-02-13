@@ -7,14 +7,6 @@ const deleteBookBtn = document.querySelectorAll(".delete-book-card")
 
 let bookList = []
 
-function Book(title, author, genre, alreadyRead, rating) {
-    this.title = title
-    this.author = author
-    this.genre = genre
-    this.alreadyRead = alreadyRead
-    this.rating = rating
-}
-
 function addBookToLibrary(){
     const title = document.getElementById("book-title-form").value;
     const author = document.getElementById("book-author-form").value;
@@ -22,9 +14,7 @@ function addBookToLibrary(){
     const alreadyRead = document.getElementById("book-read-form").checked;
     const rating = document.getElementById("book-rating-form").value;
 
-    const currentBook = new Book(title, author, genre, alreadyRead, rating)
-
-    bookList.push(currentBook)
+    bookList.push({title, author, genre, alreadyRead, rating})
 
 }
 
@@ -61,6 +51,10 @@ function showBookList(bookList){
         bookGenre.textContent = genre;
         bookRating.textContent = rating + " Star";
         bookDeleteButton.textContent = "Delete";
+
+        if (readMark == true){
+            bookReadMarker.checked = true;
+        }
     
         bookTitle.appendChild(bookReadMarker);
         bookRating.appendChild(bookDeleteButton);
