@@ -20,43 +20,44 @@ append the card to the container/main
 <body>
     <dialog class="formDialog">
         <form action="">
-            <h3>New Book</h3>
+            <h3 class="form-title">New Book</h3>
             <div class="form-container">
                 <label for="book-title-form">Title</label>
-                <input type="text" name="title" id="book-title-form" required>
+                <input class = "form-input-box" type="text" name="title" id="book-title-form" required>
                 <label for="book-author-form">Author</label>
-                <input type="text" name="title" id="book-author-form" required>
+                <input class = "form-input-box" type="text" name="title" id="book-author-form" required>
                 <label>Genre</label>
-                <select id="book-genre-form">
-                    <option value="default"></option>
-                    <option value="action">Action</option>
-                    <option value="adventure">Adventure</option>
-                    <option value="autobiography">Autobiography</option>
-                    <option value="biography">Biography</option>
-                    <option value="childrens-literature">Children's Literature</option>
-                    <option value="comedy">Comedy</option>
-                    <option value="crime">Crime</option>
-                    <option value="drama">Drama</option>
-                    <option value="fantasy">Fantasy</option>
-                    <option value="fiction">Fiction</option>
-                    <option value="historical-fiction">Historical Fiction</option>
-                    <option value="horror">Horror</option>
-                    <option value="memoir">Memoir</option>
-                    <option value="mystery">Mystery</option>
-                    <option value="non-fiction">Non-fiction</option>
-                    <option value="poetry">Poetry</option>
-                    <option value="romance">Romance</option>
-                    <option value="satire">Satire</option>
-                    <option value="science-fiction">Science Fiction</option>
-                    <option value="thriller">Thriller</option>
-                    <option value="young-adult-fiction">Young Adult Fiction</option>
+                <select id="book-genre-form" class = "form-input-box">
+                    <option value=""></option>
+                    <option value="Action">Action</option>
+                    <option value="Adventure">Adventure</option>
+                    <option value="Autobiography">Autobiography</option>
+                    <option value="Biography">Biography</option>
+                    <option value="Childrens Literature">Children's Literature</option>
+                    <option value="Comedy">Comedy</option>
+                    <option value="Crime">Crime</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Fantasy">Fantasy</option>
+                    <option value="Fiction">Fiction</option>
+                    <option value="Historical Fiction">Historical Fiction</option>
+                    <option value="Horror">Horror</option>
+                    <option value="Memoir">Memoir</option>
+                    <option value="Mystery">Mystery</option>
+                    <option value="Non-fiction">Non-fiction</option>
+                    <option value="Poetry">Poetry</option>
+                    <option value="Romance">Romance</option>
+                    <option value="Satire">Satire</option>
+                    <option value="Science Fiction">Science Fiction</option>
+                    <option value="Thriller">Thriller</option>
+                    <option value="Young Adult Fiction">Young Adult Fiction</option>
                 </select>
-                <label for="book-read-form">
-                    Alerady Read?
-                    <input type="checkbox" name="read" id="book-read-form">
-                </label>
+
                 <label for="book-rating-form">Rating</label>
-                <input type="number" name="rating" id="book-rating-form" min="1" max="5" value="">
+                <input type="number" name="rating" id="book-rating-form" min="0" max="5" value="" class = "form-input-box">
+                <label for="book-read-form" class = 'read-form-cbox'>
+                    Alerady Read?
+                    <input type="checkbox" name="read" id="book-read-form" class = "form-input-box" style="transform: scale(2);">
+                </label>
             </div>
             <div class="form-btn">
                 <button class="cancel-form">
@@ -85,7 +86,7 @@ append the card to the container/main
             <div class="book-card">
                 <h3 class="book-title-card">
                     The Time Machine
-                <input type="checkbox" class="book-marker">
+                <input type="checkbox" class="book-marker" style="transform: scale(2);">
                 </h3>
                 <p class="book-author-card">H. G. Well</p>
                 <p class="book-genre-card">Horror</p>

@@ -87,24 +87,44 @@
     border-radius: 6px;
 }
 
+  .book-marker {
+    width: 1em;
+    height: 1em;
+    background-color: white;
+    border-radius: 50%;
+    /* vertical-align: middle; */
+    border: 1px solid #ddd;
+    /* appearance: none; */
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.book-marker:checked {
+    background-color: rgb(66, 160, 66);
+    /* background-color: #7b7c7e; */
+    border: 1px solid rgb(66, 160, 66);
+}
+
+
 .book-title-card {
     display: flex;
     justify-content: space-between;
-    font-size: 16px;
+    font-size: 20px;
     color: #343a40;
 }
 
 .book-author-card {
     padding-top: 5px;
     padding-left: 2px;
-    font-size: 14px;
+    font-size: 18px;
     color: #495057;
 }
 
 .book-genre-card {
     padding-top: 5px;
     padding-left: 2px;
-    font-size: 14px;
+    font-size: 16px;
     color: #495057;
 }
 
@@ -138,6 +158,46 @@
 form {
     display: flex;
     flex-direction: column;
+    gap: 24px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    padding-right: 32px;
+    padding-left: 32px;
+
+    width: 400px;
+}
+
+.form-title {
+    font-size: x-large;
+}
+
+.form-input-box {
+    font-size: large;
+
+    padding: 12px;
+    padding-left: 12px;
+    padding-right: 0px;
+    border: 0px;
+
+    outline: none; /* Remove outline when focused */
+    border-bottom: solid black 1px;
+}
+
+.form-input-box:focus {
+    outline: none; /* Remove outline when focused */
+    border-bottom: solid black 1px;
+}
+
+label {
+    padding-top: 24px;
+    font-size: large;
+}
+
+.read-form-cbox {
+    /* padding-top: 24px; */
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-between;
 }
 
 .form-container {
@@ -146,8 +206,66 @@ form {
 }
 
 .formDialog {
+    border: 0px;
+
+    border-radius: 12px;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.form-btn {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+  
+.submit-form{
+    background-color: white;
+    border: 0px;
+
+    /* padding-top: 12px; */
+    /* padding-bottom: 12px; */
+    padding-right: 3px;
+    padding-left: 3px;
+
+    font-size: large;
+    font-weight: 600;
+    border-bottom: solid white 2px;
+}
+
+.cancel-form{
+    background-color: white;
+    border: 0px;
+    color: #495057;
+    /* padding-top: 12px; */
+    /* padding-bottom: 12px; */
+    padding-right: 3px;
+    padding-left: 3px;
+
+    font-size: large;
+    font-weight: 500;
+    border-bottom: solid white 2px;
+}
+
+.submit-form:hover{
+    border: 0px;
+    padding-right: 3px;
+    padding-left: 3px;
+    font-size: large;
+    font-weight: 600;
+
+    border-bottom: solid black 2px;
+}
+
+.cancel-form:hover{
+    border: 0px;
+    padding-right: 3px;
+    padding-left: 3px;
+    font-size: large;
+    font-weight: 500;
+    color: #495057;
+    border-bottom: solid #495057 2px;
 }

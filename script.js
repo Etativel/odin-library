@@ -40,18 +40,34 @@ function showBookList(bookList){
         bookCard.classList.add("book-card")
         bookTitle.classList.add("book-title-card")
         bookReadMarker.classList.add("book-marker")
-        bookReadMarker.type = "checkbox"
         bookAuthor.classList.add("book-author-card")
         bookGenre.classList.add("book-genre-card")
         bookRating.classList.add("book-rating-card")
         bookDeleteButton.classList.add("delete-book-card")
     
+        bookReadMarker.setAttribute('type', 'checkbox');
+        bookReadMarker.setAttribute('class', 'book-marker');
+        bookReadMarker.setAttribute('style', 'transform: scale(2);');
+
         bookTitle.textContent = title;
         bookAuthor.textContent = author;
-        bookGenre.textContent = genre;
-        bookRating.textContent = rating + " Star";
         bookDeleteButton.textContent = "Delete";
 
+
+
+        if (genre == ""){
+            bookGenre.textContent = "No genre";
+        } else {
+            bookGenre.textContent = genre;
+        }
+
+
+        if (rating == "") {
+            bookRating.textContent = "No rating";    
+        } else {
+            bookRating.textContent = rating  + " Star";;
+        }
+       
         if (readMark == true){
             bookReadMarker.checked = true;
         }
@@ -72,6 +88,7 @@ function showBookList(bookList){
 function deleteBook(titleName, bookList){
     return bookList.filter(book => book.title != titleName)
 }
+
 
 addBookBtn.addEventListener("click", ()=>{
     formDialog.showModal();
