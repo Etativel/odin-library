@@ -76,7 +76,7 @@
 
 .book-card{
     position: relative;
-
+    box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2); 
     padding: 18px;
     display: flex;
     flex-direction: column;
@@ -85,6 +85,57 @@
     width: 300px;
     border: solid black 2px;
     border-radius: 6px;
+}
+
+.book-star {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    flex-direction: row;
+    padding-right: 60px;
+    padding-left: 6px;
+}
+
+.fa-solid {
+    font-size: 18px;
+    transition: transform 0.01s ease;
+}
+
+.fa-solid:hover {
+    transform: scale(1.2);
+}
+
+.book-star i {
+    color: #e6e6e6;
+    cursor: pointer;
+  }
+  .book-star i.active {
+    color: #ff9c1a;
+  }
+
+.delete-book-card {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-right: 12px;
+    padding-left: 12px;
+    color: white;
+    border: 0px;
+    background-color: red;
+    border: solid red 2px;
+    border-radius: 7px;
+    font-weight: 700;
+}
+
+.delete-book-card:hover {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-right: 12px;
+    padding-left: 12px;
+    color: red;
+    border: solid red 2px;
+    background-color: white;
+    border-radius: 7px;
+    font-weight: 700;
 }
 
   .book-marker {
@@ -98,6 +149,10 @@
     -webkit-appearance: none;
     outline: none;
     cursor: pointer;
+}
+
+.check-mark {
+    height: 26px;
 }
 
 .book-marker:checked {

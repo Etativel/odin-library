@@ -1,10 +1,10 @@
 <!-- 
 TODO
 
-append every child in the book card
-make loop to loop every element in book list, change the text content on the iteration based on the book
-append the card to the container/main
+styling (delete button, rating adjustment)
+filter  bar
 
+star click didnt work for new book
  -->
 
 <!DOCTYPE html>
@@ -15,6 +15,7 @@ append the card to the container/main
     <title>My Library</title>
     <link rel="shortcut icon" href="stack-of-books.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -86,12 +87,19 @@ append the card to the container/main
             <div class="book-card">
                 <h3 class="book-title-card">
                     The Time Machine
-                <input type="checkbox" class="book-marker" style="transform: scale(2);">
+                <!-- <input type="checkbox" class="book-marker" style="transform: scale(2);"> -->
+                <img class="check-mark" src="greenCheck.png" alt="">
                 </h3>
                 <p class="book-author-card">H. G. Well</p>
                 <p class="book-genre-card">Horror</p>
                 <div class="book-rating-card">
-                    4 Star
+                    <div class="book-star">
+                        <i class="fa-solid fa-star click"></i>
+                        <i class="fa-solid fa-star click"></i>
+                        <i class="fa-solid fa-star click"></i>
+                        <i class="fa-solid fa-star click"></i>
+                        <i class="fa-solid fa-star click"></i>
+                    </div>
                     <button class="delete-book-card">Delete</button>
                 </div>
             </div>
