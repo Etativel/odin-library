@@ -84,6 +84,7 @@
     margin-left: 12px;
     padding-top: 12px;
     border-radius: 8px;
+
 }
 
 .form-filter-box {
@@ -124,7 +125,7 @@
 }
 
 .filter-title {
-    color: rgb(255, 92, 92);
+    /* color: rgb(255, 92, 92); */
     font-size: medium;
 }
 
@@ -222,15 +223,14 @@
     font-weight: 700;
 }
 
-  .book-marker {
+.book-marker {
     width: 1em;
     height: 1em;
     background-color: white;
     border-radius: 50%;
     /* vertical-align: middle; */
     border: 1px solid #ddd;
-    /* appearance: none; */
-    -webkit-appearance: none;
+    appearance: none;
     outline: none;
     cursor: pointer;
 }
@@ -283,13 +283,13 @@
 }
 
 .footer {
+    font-weight: 500;
     grid-column: 1/4;
     grid-row: 3;
     position: fixed;
     bottom: 0;
     width: 100%;
     padding: 20px;
-    /* overflow-y: hidden; */
 
     text-align: center;
 }

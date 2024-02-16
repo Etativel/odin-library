@@ -5,20 +5,35 @@ const submitForm = document.querySelector(".dialog-form")
 const bookMainContainer = document.querySelector(".main")
 const container = document.querySelector('.main');
 const filter = document.querySelector(".filter-form")
-// const deleteBookBtn = document.querySelectorAll(".delete-book-card")
-// const stars = document.querySelectorAll(".book-star i");
+
+document.addEventListener("DOMContentLoaded", ()=>{
+    showBookList(bookList)
+});
 
 let bookList = [
-    {title: 'Ocean Tales', author: 'Coraline Smith', genre: 'Adventure', alreadyRead: false, rating: 4},
-    {title: 'Mystic Woods', author: 'Green Leaf', genre: 'Fantasy', alreadyRead: true, rating: 5},
-    {title: 'Skyward Bound', author: 'Cloud Walker', genre: 'Science Fiction', alreadyRead: false, rating: 4},
-    {title: 'Desert Mirage', author: 'Sandy Dunes', genre: 'Mystery', alreadyRead: true, rating: 4},
-    {title: 'Rising Storm', author: 'Thunder Clash', genre: 'Thriller', alreadyRead: false, rating: 4},
-    {title: 'Eternal Night', author: 'Luna Shadow', genre: 'Horror', alreadyRead: true, rating: 3},
-    {title: 'The Last Stand', author: 'Final Hour', genre: 'Action', alreadyRead: false, rating: 4},
-    {title: 'Whispering Sands', author: 'Desert Voice', genre: 'Romance', alreadyRead: true, rating: 4},
-    {title: 'Frozen Secrets', author: 'Icy Whisper', genre: 'Mystery', alreadyRead: false, rating: 4}
-    ]
+    {title: 'The Great Adventure', author: 'John Doe', genre: 'Adventure', alreadyRead: false, rating: 4},
+    {title: 'Action Man', author: 'Jane Smith', genre: 'Action', alreadyRead: true, rating: 5},
+    {title: 'Autobiography of a Dreamer', author: 'Dreamy McDreamer', genre: 'Autobiography', alreadyRead: false, rating: 4},
+    {title: 'Biography of a Genius', author: 'Albert Einstein', genre: 'Biography', alreadyRead: true, rating: 4},
+    {title: 'Children of the Stars', author: 'Starry Night', genre: 'Childrens Literature', alreadyRead: false, rating: 4},
+    {title: 'Comedy Club Chronicles', author: 'Laugh Track', genre: 'Comedy', alreadyRead: true, rating: 3},
+    {title: 'The Crime Wave', author: 'Sleuth Master', genre: 'Crime', alreadyRead: false, rating: 4},
+    {title: 'Drama Queen', author: 'Dramatic Persona', genre: 'Drama', alreadyRead: true, rating: 4},
+    {title: 'Fantasy Island', author: 'Magic Weaver', genre: 'Fantasy', alreadyRead: false, rating: 4},
+    {title: 'Fictional Fables', author: 'Imaginary Friend', genre: 'Fiction', alreadyRead: true, rating: 4},
+    {title: 'Historical Odyssey', author: 'Time Traveler', genre: 'Historical Fiction', alreadyRead: false, rating: 4},
+    {title: 'Horror House', author: 'Spooky Scary', genre: 'Horror', alreadyRead: true, rating: 3},
+    {title: 'Memoirs of Me', author: 'Myself', genre: 'Memoir', alreadyRead: false, rating: 4},
+    {title: 'Mystery Mansion', author: 'Puzzle Master', genre: 'Mystery', alreadyRead: true, rating: 4},
+    {title: 'Non-fiction Nook', author: 'Fact Finder', genre: 'Non-fiction', alreadyRead: false, rating: 4},
+    {title: 'Poetry Paradise', author: 'Poet Laureate', genre: 'Poetry', alreadyRead: true, rating: 4},
+    {title: 'Romantic Escapades', author: 'Lovebird', genre: 'Romance', alreadyRead: false, rating: 4},
+    {title: 'Satirical Sketches', author: 'Satire Master', genre: 'Satire', alreadyRead: true, rating: 3},
+    {title: 'Space Odyssey', author: 'Galactic Explorer', genre: 'Science Fiction', alreadyRead: false, rating: 4},
+    {title: 'Thrilling Tales', author: 'Thrill Seeker', genre: 'Thriller', alreadyRead: true, rating: 4},
+    {title: 'Young Adult Adventures', author: 'Teenage Dreamer', genre: 'Young Adult Fiction', alreadyRead: false, rating: 4}
+];
+
 let onFilterMode = false;
 let filteredBookList;
 function Book(title, author, genre, alreadyRead, rating){
@@ -28,8 +43,6 @@ function Book(title, author, genre, alreadyRead, rating){
     this.alreadyRead = alreadyRead;
     this.rating = rating
 }
-
-
 
 function addBookToLibrary(){
     const title = document.getElementById("book-title-form").value;
@@ -42,7 +55,6 @@ function addBookToLibrary(){
     bookList.push(newBook)
 
 }
-
 
 function showBookList(bookList){
 
