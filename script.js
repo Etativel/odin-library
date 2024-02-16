@@ -1,10 +1,11 @@
 const addBookBtn = document.querySelector(".addBook-btn")
 const formDialog = document.querySelector(".formDialog");
 const cancelForm = document.querySelector(".cancel-form")
-const submitForm = document.querySelector("form")
+const submitForm = document.querySelector(".dialog-form")
 const bookMainContainer = document.querySelector(".main")
-// const deleteBookBtn = document.querySelectorAll(".delete-book-card")
 const container = document.querySelector('.main');
+const filter = document.querySelector(".filter-form")
+// const deleteBookBtn = document.querySelectorAll(".delete-book-card")
 // const stars = document.querySelectorAll(".book-star i");
 
 let bookList = [
@@ -18,8 +19,8 @@ let bookList = [
     {title: 'Whispering Sands', author: 'Desert Voice', genre: 'Romance', alreadyRead: true, rating: 4},
     {title: 'Frozen Secrets', author: 'Icy Whisper', genre: 'Mystery', alreadyRead: false, rating: 4}
     ]
-
-
+let onFilterMode = false;
+let filteredBookList;
 function Book(title, author, genre, alreadyRead, rating){
     this.title = title;
     this.author = author;
@@ -147,6 +148,28 @@ function findMarkByTitle(title) {
     return "Title not found";
 }
 
+function filterBook(genre, rating, author) {
+    let filteredBooks = [...bookList];
+    if (!genre && !rating && !author) {
+        return filteredBooks;
+    }
+
+    if (genre) {
+        filteredBooks = filteredBooks.filter(book => book.genre.toLowerCase() === genre.toLowerCase());
+    }
+
+    if (rating) {
+        filteredBooks = filteredBooks.filter(book => book.rating === parseInt(rating));
+    }
+
+    if (author) {
+        filteredBooks = filteredBooks.filter(book => book.author.toLowerCase().includes(author.toLowerCase()));
+    }
+
+    
+    return filteredBooks;
+}
+
 addBookBtn.addEventListener("click", ()=>{
     formDialog.showModal();
 })
@@ -167,13 +190,40 @@ submitForm.addEventListener("submit", (e) => {
 
 });
 
+filter.addEventListener('submit',(e)=>{
+    const filterGenre = document.getElementById("genre-filter").value;
+    const filterRating = document.getElementById("rating-filter").value;
+    const filterAuthor = document.getElementById("author-filter").value;
+    if (!filterGenre && !filterRating && !filterAuthor) {
+        e.preventDefault()
+        onFilterMode = false;
+    }else {
+        onFilterMode = true;
+    }
+    console.log(onFilterMode)    
+    filteredBookList = filterBook(filterGenre, filterRating, filterAuthor);
+    showBookList(filteredBookList)
+    e.preventDefault()
+    
+})
+
 
 bookMainContainer.addEventListener("click", (e) => {
     if (e.target.classList.contains("delete-book-card")) {
         e.preventDefault();
         var bookTitleToDelete = e.target.closest(".book-card").querySelector(".book-title-card").textContent.trim();
         bookList = deleteBook(bookTitleToDelete, bookList)
-        showBookList(bookList)
+        if (onFilterMode == true){
+            if (filteredBookList.length = 0){
+                showBookList(bookList)    
+            }else{
+                showBookList(filteredBookList)    
+            }
+        }else {
+            showBookList(bookList)
+        }
+        
+        
     }
     else if (e.target.classList.contains("fa-solid")){
         let bookTitleToRate = e.target.closest(".book-card").querySelector(".book-title-card").textContent.trim()
@@ -186,7 +236,12 @@ bookMainContainer.addEventListener("click", (e) => {
         let bookToUpdate = bookList.find(book => book.title === bookTitleToRate);
         if (bookToUpdate) {
             bookToUpdate.rating = indexOfStarClicked;
-            showBookList(bookList)
+            if (onFilterMode == true){
+                showBookList(filteredBookList)
+            }else {
+                showBookList(bookList)
+            }
+            
         }
     }
     else if (e.target.classList.contains("book-marker")){
@@ -197,7 +252,12 @@ bookMainContainer.addEventListener("click", (e) => {
         let bookToUpdate = bookList.find(book => book.title === bookTitleToMark);
         if (bookToUpdate) {
             bookToUpdate.alreadyRead = markCheck;
-            showBookList(bookList)
+            if (onFilterMode == true){
+                showBookList(filteredBookList)
+            }else{
+                showBookList(bookList)
+            }
+            
         }
     }
 });

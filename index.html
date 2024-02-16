@@ -21,7 +21,7 @@ star click will based on the book rating, so every time new book added (page rel
 </head>
 <body>
     <dialog class="formDialog">
-        <form action="">
+        <form action="" class="dialog-form">
             <h3 class="form-title">New Book</h3>
             <div class="form-container">
                 <label for="book-title-form">Title</label>
@@ -82,9 +82,47 @@ star click will based on the book rating, so every time new book added (page rel
               </svg>
             </button>
         </div>
+        <div class="filter">
+            <form action="" class="filter-form">
+                    <h3 class="filter-header">Filter Book</h3>
+                    <label class="filter-title">Genre</label>
+                    <select id="genre-filter" class = "genre-filter">
+                        <option value=""></option>
+                        <option value="Action">Action</option>
+                        <option value="Adventure">Adventure</option>
+                        <option value="Autobiography">Autobiography</option>
+                        <option value="Biography">Biography</option>
+                        <option value="Childrens Literature">Children's Literature</option>
+                        <option value="Comedy">Comedy</option>
+                        <option value="Crime">Crime</option>
+                        <option value="Drama">Drama</option>
+                        <option value="Fantasy">Fantasy</option>
+                        <option value="Fiction">Fiction</option>
+                        <option value="Historical Fiction">Historical Fiction</option>
+                        <option value="Horror">Horror</option>
+                        <option value="Memoir">Memoir</option>
+                        <option value="Mystery">Mystery</option>
+                        <option value="Non-fiction">Non-fiction</option>
+                        <option value="Poetry">Poetry</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Satire">Satire</option>
+                        <option value="Science Fiction">Science Fiction</option>
+                        <option value="Thriller">Thriller</option>
+                        <option value="Young Adult Fiction">Young Adult Fiction</option>
+                    </select>
 
+                    <label for="rating-filter" class="filter-title">Rating</label>
+                    <input type="number" name="rating" id="rating-filter" min="0" max="5" value="" class = "form-filter-box">
 
+                    <label for="author-filter"  class="filter-title">Author</label>
+                    <input type="text" name="title" id="author-filter" class = "form-filter-box">
+
+                    <button type="submit" class="filter-button">Search</button>
+            </form>
+            
+        </div>
         <div class="main">
+
             <!-- <div class="book-card hidden-card">
                 <h3 class="book-title-card">
                     The Time Machine
@@ -103,10 +141,6 @@ star click will based on the book rating, so every time new book added (page rel
                     <button class="delete-book-card">Delete</button>
                 </div>
             </div> -->
-
-
-            
-
 
         </div>
 
