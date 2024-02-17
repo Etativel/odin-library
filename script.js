@@ -138,8 +138,16 @@ function showBookList(bookList){
     
 }
 
+// function deleteBook(titleName, bookList){
+//     return bookList.filter(book => book.title != titleName)
+// }
+
 function deleteBook(titleName, bookList){
-    return bookList.filter(book => book.title != titleName)
+    bookList = bookList.filter(book => book.title !== titleName);
+    if (onFilterMode) {
+        filteredBookList = filteredBookList.filter(book => book.title !== titleName);
+    }
+    return bookList;
 }
 
 function findRatingByTitle(title) {
@@ -225,8 +233,9 @@ bookMainContainer.addEventListener("click", (e) => {
         e.preventDefault();
         var bookTitleToDelete = e.target.closest(".book-card").querySelector(".book-title-card").textContent.trim();
         bookList = deleteBook(bookTitleToDelete, bookList)
+        console.log(bookList)
         if (onFilterMode == true){
-            if (filteredBookList.length = 0){
+            if (filteredBookList.length === 0){
                 showBookList(bookList)    
             }else{
                 showBookList(filteredBookList)    
