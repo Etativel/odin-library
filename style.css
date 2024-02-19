@@ -60,7 +60,7 @@
 }
 
 .main {
-    grid-column: 2;
+    grid-column: 2/4;
     padding-bottom: 30px;
     padding-top: 30px;
     overflow: scroll;
@@ -71,7 +71,12 @@
     grid-auto-rows: min-content;
     gap: 32px;
     justify-items: center;
-    overflow-x: hidden
+    overflow-x: hidden;
+    /* margin-right: 12px; */
+    /* margin-left: 12px; */
+
+    /* Uncomment this to get space for sometin on the right side*/
+    /* grid-column: 3; */
 }
 
 .filter {

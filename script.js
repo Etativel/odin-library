@@ -231,7 +231,7 @@ filter.addEventListener('submit',(e)=>{
 bookMainContainer.addEventListener("click", (e) => {
     if (e.target.classList.contains("delete-book-card")) {
         e.preventDefault();
-        var bookTitleToDelete = e.target.closest(".book-card").querySelector(".book-title-card").textContent.trim();
+        let bookTitleToDelete = e.target.closest(".book-card").querySelector(".book-title-card").textContent.trim();
         bookList = deleteBook(bookTitleToDelete, bookList)
         console.log(bookList)
         if (onFilterMode == true){
