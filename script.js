@@ -181,16 +181,16 @@ function deleteBook(titleName, bookList){
     return bookList;
 }
 
-function findRatingByTitle(title) {
-    for (let i = 0; i < bookList.length; i++) {
-        if (bookList[i].title === title) {
-            return bookList[i].rating;
-        }
-    }
-    return "Title not found";
-}
+// function findRatingByTitle(title) {
+//     for (let i = 0; i < bookList.length; i++) {
+//         if (bookList[i].title === title) {
+//             return bookList[i].rating;
+//         }
+//     }
+//     return "Title not found";
+// }
 
-function findMarkByTitle(title) {
+function findTitleByMark(title) {
     for (let i = 0; i < bookList.length; i++) {
         if (bookList[i].title === title) {
             return bookList[i].alreadyRead;
@@ -263,9 +263,9 @@ filter.addEventListener('submit',(e)=>{
 bookMainContainer.addEventListener("click", (e) => {
     if (e.target.classList.contains("delete-book-card")) {
         e.preventDefault();
-        let bookTitleToDelete = e.target.closest(".book-card").querySelector(".book-title-card").textContent.trim();
-        bookList = deleteBook(bookTitleToDelete, bookList)
-        console.log(bookList)
+        let bookTitleFromDelete = e.target.closest(".book-card").querySelector(".book-title-card").textContent.trim();
+        bookList = deleteBook(bookTitleFromDelete, bookList)
+        console.log(bookTitleFromDelete)
         if (onFilterMode == true){
             if (filteredBookList.length === 0){
                 showBookList(bookList)    
@@ -279,14 +279,14 @@ bookMainContainer.addEventListener("click", (e) => {
         
     }
     else if (e.target.classList.contains("fa-solid")){
-        let bookTitleToRate = e.target.closest(".book-card").querySelector(".book-title-card").textContent.trim()
+        let bookTitleFromRate = e.target.closest(".book-card").querySelector(".book-title-card").textContent.trim()
         // let rating = findRatingByTitle(bookTitleToRate)
-        
+        console.log(bookTitleFromRate)
         let stars = e.target.closest(".book-star").querySelectorAll(".fa-solid");
         let indexOfStarClicked = Array.from(stars).indexOf(e.target) + 1;
 
 
-        let bookToUpdate = bookList.find(book => book.title === bookTitleToRate);
+        let bookToUpdate = bookList.find(book => book.title === bookTitleFromRate);
         if (bookToUpdate) {
             bookToUpdate.rating = indexOfStarClicked;
             if (onFilterMode == true){
@@ -298,11 +298,12 @@ bookMainContainer.addEventListener("click", (e) => {
         }
     }
     else if (e.target.classList.contains("book-marker")){
-        let bookTitleToMark = e.target.closest(".book-card").querySelector(".book-title-card").textContent.trim()
-        let markCheck = findMarkByTitle(bookTitleToMark)
+        let bookTitleFromMark = e.target.closest(".book-card").querySelector(".book-title-card").textContent.trim()
+        console.log(bookTitleFromMark)
+        let markCheck = findTitleByMark(bookTitleFromMark)
         markCheck = !markCheck
 
-        let bookToUpdate = bookList.find(book => book.title === bookTitleToMark);
+        let bookToUpdate = bookList.find(book => book.title === bookTitleFromMark);
         if (bookToUpdate) {
             bookToUpdate.alreadyRead = markCheck;
             if (onFilterMode == true){
