@@ -39,12 +39,23 @@ let bookList = [
 
 let onFilterMode = false;
 let filteredBookList;
-function Book(title, author, genre, alreadyRead, rating){
-    this.title = title;
-    this.author = author;
-    this.genre = genre;
-    this.alreadyRead = alreadyRead;
-    this.rating = rating
+class Book{
+    constructor(title, author, genre, alreadyRead, rating){
+        this.title = title;
+        this.author = author;
+        this.genre = genre;
+        this.alreadyRead = alreadyRead;
+        this.rating = rating
+    
+    }
+
+    toggleRead(){
+        this.alreadyRead = !this.alreadyRead
+    }
+
+    updateRating(newRating){
+        this.rating = newRating
+    }
 }
 
 function addBookToLibrary(){
