@@ -75,7 +75,7 @@ function addBookToLibrary(){
     const genre = document.getElementById("book-genre-form").value;
     const alreadyRead = document.getElementById("book-read-form").checked;
     const rating = document.getElementById("book-rating-form").value;
-
+    console.log(alreadyRead)
     const newBook = new Book(title, author, genre, alreadyRead, rating)
     let bookObject = {
         title: newBook.title,
@@ -85,13 +85,6 @@ function addBookToLibrary(){
         rating: parseInt(newBook.rating)
     }
     bookList.push(bookObject)
-    if (onFilterMode) {
-        filteredBookList = filterBook(
-            document.getElementById("genre-filter").value,
-            document.getElementById("rating-filter").value,
-            document.getElementById("author-filter").value
-        );
-    }
 }
 
 function showBookList(bookList){
