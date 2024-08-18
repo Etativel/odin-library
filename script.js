@@ -1,3 +1,5 @@
+// This class refactor
+
 const addBookBtn = document.querySelector(".addBook-btn")
 const formDialog = document.querySelector(".formDialog");
 const cancelForm = document.querySelector(".cancel-form")
@@ -8,6 +10,7 @@ const filter = document.querySelector(".filter-form")
 
 document.addEventListener("DOMContentLoaded", ()=>{
     showBookList(bookList)
+    console.log("branch")
 });
 
 let bookList = [
