@@ -56,6 +56,17 @@ class Book{
     updateRating(newRating){
         this.rating = newRating
     }
+
+    toObject(){
+        return {
+            title: this.title,
+            author: this.author,
+            genre: this.genre,
+            alreadyRead: this.alreadyRead,
+            rating: this.rating
+        }
+    }
+
 }
 
 function addBookToLibrary(){
@@ -66,8 +77,21 @@ function addBookToLibrary(){
     const rating = document.getElementById("book-rating-form").value;
 
     const newBook = new Book(title, author, genre, alreadyRead, rating)
-    bookList.push(newBook)
-
+    let bookObject = {
+        title: newBook.title,
+        author: newBook.author,
+        genre: newBook.genre,
+        alreadyRead: newBook.alreadyRead,
+        rating: parseInt(newBook.rating)
+    }
+    bookList.push(bookObject)
+    if (onFilterMode) {
+        filteredBookList = filterBook(
+            document.getElementById("genre-filter").value,
+            document.getElementById("rating-filter").value,
+            document.getElementById("author-filter").value
+        );
+    }
 }
 
 function showBookList(bookList){
@@ -200,8 +224,9 @@ function filterBook(genre, rating, author) {
         filteredBooks = filteredBooks.filter(book => book.author.toLowerCase().includes(author.toLowerCase()));
     }
 
-    
+    console.log(filteredBooks)
     return filteredBooks;
+
 }
 
 addBookBtn.addEventListener("click", ()=>{
